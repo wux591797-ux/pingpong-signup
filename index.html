@@ -2,59 +2,70 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>2025聚力蝴蝶杯报名</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>青少年乒乓球报名</title>
   <style>
     body {
       margin: 0;
-      background: url('bg.jpg') no-repeat center top;
-      background-size: contain;
-      font-family: "微软雅黑", sans-serif;
+      padding: 0;
+      height: 100vh;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
     }
-    .form-container {
-      position: absolute;
-      top: 290px;
-      left: 80px;
+
+    .form-box {
+      background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 320px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, select, button {
       width: 100%;
-    }
-    .input-box {
-      position: absolute;
-      width: 300px;
-      height: 32px;
-      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       font-size: 16px;
-      padding: 5px;
     }
-    input:focus {
-      outline: none;
-    }
-    #name       { top: 0px;    left: 130px; }
-    #gender     { top: 50px;   left: 130px; }
-    #birthday   { top: 100px;  left: 200px; }
-    #city       { top: 150px;  left: 200px; }
-    #parent     { top: 200px;  left: 200px; }
-    #phone      { top: 250px;  left: 200px; }
-    #submit {
-      position: absolute;
-      top: 320px;
-      left: 100px;
-      width: 300px;
-      height: 50px;
-      background: transparent;
+
+    button {
+      background-color: #00a8ff;
+      color: white;
       border: none;
       cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0091e6;
     }
   </style>
 </head>
 <body>
-  <form class="form-container">
-    <input type="text" placeholder="请输入姓名" class="input-box" id="name">
-    <input type="text" placeholder="请输入性别" class="input-box" id="gender">
-    <input type="date" class="input-box" id="birthday">
-    <input type="text" placeholder="所在市/区" class="input-box" id="city">
-    <input type="text" placeholder="家长姓名" class="input-box" id="parent">
-    <input type="tel" placeholder="联系电话" class="input-box" id="phone">
-    <button type="submit" id="submit"></button>
-  </form>
+  <div class="form-box">
+    <h1>报名表</h1>
+    <form>
+      <input type="text" placeholder="姓名" required />
+      <input type="number" placeholder="年龄" required />
+      <select required>
+        <option value="">请选择性别</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+      <input type="text" placeholder="联系方式" required />
+      <button type="submit">提交报名</button>
+    </form>
+  </div>
 </body>
 </html>
