@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>青少年乒乓球比赛报名</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 10px;
+    }
+    input, select, button {
+      padding: 8px;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+    .success {
+      display: none;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>青少年乒乓球比赛报名</h2>
+  <form id="signupForm">
+    <label>姓名：<input type="text" name="name" required></label>
+    <label>性别：
+      <select name="gender" required>
+        <option value="">请选择</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+    </label>
+    <label>出生年月日：<input type="date" name="birthday" required></label>
+    <label>所在市/区：<input type="text" name="location" required></label>
+    <label>家长姓名：<input type="text" name="parent_name" required></label>
+    <label>家长联系电话：<input type="tel" name="parent_phone" required></label>
+    <button type="submit">报名并交费 ￥200</button>
+  </form>
+  <div class="success" id="successMsg">报名成功，感谢您的参与！</div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // 获取表单数据
+      const data = new FormData(form);
+      const name = data.get('name');
+
+      // 模拟跳转到支付页面
+      const confirmed = confirm(`将跳转到支付页面，确认支付200元报名费？\n报名者：${name}`);
+      if (confirmed) {
+        // 模拟支付成功
+        setTimeout(() => {
+          successMsg.style.display = 'block';
+          form.style.display = 'none';
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>
